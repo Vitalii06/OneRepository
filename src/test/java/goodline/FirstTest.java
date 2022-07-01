@@ -20,10 +20,9 @@ public class FirstTest {
         driver.get("https://testsheepnz.github.io/BasicCalculator.html");
         //driver.navigate().to("https://testsheepnz.github.io/BasicCalculator.html");
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
-
+        new Select(driver.findElement(By.id("selectBuild"))).selectByVisibleText("Prototype");
         driver.findElement(By.id("number1Field")).sendKeys("2");
         driver.findElement(By.id("number2Field")).sendKeys("3");
-
         new Select(driver.findElement(By.id("selectOperationDropdown"))).selectByVisibleText("Subtract");
         driver.findElement(By.id("calculateButton")).click();
         Thread.sleep(10000);

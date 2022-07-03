@@ -14,12 +14,12 @@ public class ThirdTest extends WebDriverSettings {
         String value = "string: Not a number!";
         driver.get("https://testsheepnz.github.io/random-number.html");
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
-        new Select(driver.findElement(By.id("buildNumber"))).selectByVisibleText("Demo");
-        driver.findElement(By.id("rollDiceButton")).click();
+        new Select(driver.findElement(By.xpath("//select[@id='buildNumber']"))).selectByVisibleText("Demo");
+        driver.findElement(By.xpath("//input[@id='rollDiceButton']")).click();
         Thread.sleep(5000);
-        driver.findElement(By.id("numberGuess")).sendKeys("string");
-        driver.findElement(By.id("submitButton")).click();
-        String answer = driver.findElement(By.id("feedbackLabel")).getText();
+        driver.findElement(By.xpath("//input[@id='numberGuess']")).sendKeys("string");
+        driver.findElement(By.xpath("//input[@id='submitButton']")).click();
+        String answer = driver.findElement(By.xpath("//label[@id='feedbackLabel']")).getText();
         assertThat(value, equalTo(answer));
 
     }
